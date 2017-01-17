@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cadastro</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <!-- Link online referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css">
+    
+    
+    <!--Script referente ao alert-->
+    <script src="js/sweetalert.min.js"></script>
+    <!--Link de css referente ao alert-->
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    
+    </head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <button onclick="window.history.back()" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon"> <i class="material-icons">arrow_back</i> </button>
+            <div class="mdl-layout__header-row"> <span class="mdl-layout-title">Cadastrar</span> </div>
+        </header>
+        <main class="mdl-layout__content">
+            <br/>
+            <!-- CSS referente ao padding da tag <main> -->
+            <style rel="stylesheet">
+                main {
+                    padding-left: 5%;
+                    padding-right: 5%;
+                    padding-bottom: 5%;
+                }
+            </style>
+            
+            <!-- Input referente ao nome -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="nome" >
+                    <label class="mdl-textfield__label" for="nome">Nome</label>
+                </div>
+            </form>
+            
+            <!-- Input referente ao CPF com máscara e com validação simples-->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" id="cpf">
+                    <label class="mdl-textfield__label" for="cpf">CPF</label>
+                    <span class="mdl-textfield__error">CPF inválido</span>
+                </div>
+            </form>            
+            
+            <!-- Input referente ao RG sem máscara nem validação (casa da mãe joana)-->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="rg">
+                    <label class="mdl-textfield__label" for="rg">RG</label>
+                </div>
+            </form>
+            
+            <!-- Input referente ao Sexo com validação -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="[mMfF]{1}" id="sexo">
+                    <label class="mdl-textfield__label" for="sexo">Sexo (M para Masculino e F para Feminino)</label>
+                    <span class="mdl-textfield__error">Sexo inválido</span>
+                </div>
+            </form>
+            
+            <!-- Input referente a data de nascimento com máscara e validação de ano bissexto-->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" id="dtnasc">
+                    <label class="mdl-textfield__label" for="dtnasc">Data de Nascimento</label>
+                    <span class="mdl-textfield__error">Data inválida</span>
+                </div>
+            </form>
+            
+            <!-- Input referente ao e-mail com validação-->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email">
+                    <label class="mdl-textfield__label" for="email">Email</label>
+                    <span class="mdl-textfield__error">E-mail inválido</span>
+                </div>
+            </form>
+            
+            <!-- Input referente a senha -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="senha">
+                    <label class="mdl-textfield__label" for="senha">Senha</label>
+                </div>
+            </form>
+            
+            <!-- Input referente a confirmação de senha -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="confirsenha">
+                    <label class="mdl-textfield__label" for="confirsenha">Confirmação de senha</label>
+                </div>
+            </form>
+            <style rel="stylesheet">
+                .mdl-button {
+                    float: right;
+                }
+            </style>
+            <!-- Botão salvar -->
+            <button id="btnCadastrar" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"> <i class="material-icons">send</i> </button>
+        </main>
+    </div>
+</body>
+    
+    <!--Script referente as máscaras-->
+    <script>        
+        /*Mascara do campo data de CPF*/
+        $('#cpf').mask('000.000.000-00');
+        /*Mascara do campo data de nascimento*/
+        $('#dtnasc').mask('00/00/0000');    
+    </script>
+
+
+
+    <script>
+    $("#btnCadastrar").click(function () {
+        //Váriaveis
+        var urlSite = "http://luvi.esy.es/api/apiCadastrar.php";
+        var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+        var nome = $("#nome").val();
+        var rg = $("#rg").val();
+        var cpf = $("#cpf").val();
+        var sexo = $("#sexo").val();
+        var dtNasc = $("#dtnasc").val();
+        var email = $("#email").val();
+        var senha = $("#senha").val();
+        var confirsenha = $("#confirsenha").val();
+        //Fim Váriaveis
+        //Validações
+        if (nome == "") {
+            sweetAlert("Oops...", "Preencha o campo Nome!", "error");
+        }
+        else if (cpf == "") {
+            sweetAlert("Oops...", "Preencha o campo CPF!", "error");
+        }
+        else if (rg == "") {
+            sweetAlert("Oops...", "Preencha o campo RG!", "error");
+        }
+        else if (sexo == "") {
+            sweetAlert("Oops...", "Preencha o campo Sexo!", "error");
+        }
+        else if (dtNasc == "") {
+            sweetAlert("Oops...", "Preencha o campo Data de nascimento!", "error");
+        }
+        else if (email == "") {
+            sweetAlert("Oops...", "Preencha o campo E-mail!", "error");
+        }
+        else if (senha == "") {
+            sweetAlert("Oops...", "Preencha o campo Senha!", "error");
+        }
+        else if (confirsenha == "") {
+            sweetAlert("Oops...", "Preencha o campo Confirmação de senha!", "error");
+        }
+        else if (senha != confirsenha) {
+            sweetAlert("Oops...", "Os campos de Senha e Confirmação de senha devem ser iguais!", "error");
+        }
+        else {
+            //Ajax que envia a requisição ao php para inserir dados no banco
+            $.ajax({
+                method: "POST"
+                , url: urlSite, //URL de onde a API está localizada
+                data: 'token=' + token + '&nome=' + nome + '&rg=' + rg + '&cpf=' + cpf + '&sexo=' + sexo + '&dtnasc=' + dtNasc + '&email=' + email + '&senha=' + senha, //Enviando os dados via parametro para a API
+                assync: "false"
+            }).done(function (result)
+                    { //Caso der certo a API vai retornar o ID e o nome do usuário cadastrado
+                if (result == 'null')
+                {
+                    sweetAlert("Oops...", "Não foi possivel efetuar o cadastro do usuário!", "error");
+                }
+                else {
+                    
+                    
+                    /*Aler que espera a confirmação para poder ir a home depois de efetuado o cadastro*/
+                    swal({
+                        title: "Bem vindo!",
+                        text: "Cadastro efetuado com sucesso!",
+                        type: "success",
+                    },
+                         /*Função executada após a confirmação do usuário*/
+                         function(){
+                        var resultado = result.replace("[", "");
+                        var resultado = resultado.replace("]", "");
+                        localStorage.setItem("usuario", resultado);
+                        window.location = 'home.html';
+                    });
+                    
+                    
+                    
+                    
+                    
+                }
+            }).fail(function (erro) {
+                alert("Ops, houve um probleminha inesperado!");
+            });
+        }
+    });
+</script>
+
+</html>

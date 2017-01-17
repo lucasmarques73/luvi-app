@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Perfil</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+
+        p {
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+            font-size: 16px !important;
+            font-weight: 400 !important;
+            letter-spacing: .04em !important;
+            line-height: 1 !important;
+            color: rgba(0, 0, 0, .87) !important;
+        }
+
+        h2 {
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+            font-weight: 400 !important;
+            letter-spacing: .04em !important;
+            line-height: 1 !important;
+            color: #FFF !important;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <!-- Link online referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css"> </head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <button onclick="window.history.back()" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon"> <i class="material-icons">arrow_back</i> </button>
+            <div class="mdl-layout__header-row"> <span class="mdl-layout-title">Perfil</span> </div>
+        </header>
+        <main class="mdl-layout__content">
+            <!-- CSS referente ao card do perfil> -->
+            <style>
+                .demo-card-wide.mdl-card {
+                    width: 100%;
+                }
+
+                .demo-card-wide > .mdl-card__title {
+                    color: #fff;
+                    height: 176px;
+                    background: url("PropagandaIMG/capa.jpg") center / cover;
+                }
+
+                .demo-card-wide > .mdl-card__menu {
+                    color: #fff;
+                }
+            </style>
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                    <!-- tag da imagem do perfil -->
+                    <img id="imgperfil" src="PropagandaIMG/IMGperfil.png">
+                    <!-- CSS referente a imagem do perfil -->
+                    <style type="text/css">
+                        #imgperfil {
+                            max-width: 100px;
+                            max-height: 100px;
+                            border-radius: 50%;
+                        }
+                    </style>
+                    <!-- tag do nome do perfil -->
+                    <h2 class="mdl-card__title-text" id="nomePerfil"></h2> </div>
+                <!-- tag referente a descrição do perfil -->
+                <div class="mdl-card__supporting-text" id="dadosPerfil"> </div>
+                <!-- tags referente aos botões do perfil -->
+                <div class="mdl-card__actions mdl-card--border">
+                  <a href="contato.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Contatos</a>
+                  <a href="enderecos.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Endereços</a> 
+                  <a href="editsenha.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Alterar senha</a>
+                  <a href="editcad.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Editar perfil</a>
+                  <a onclick="" class="show-close mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Sair</a> </div>
+                <!-- tag referente ao botão compartilhar do perfil -->
+                <div class="mdl-card__menu">
+                    <button onclick="construcao()" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"> <i class="material-icons">share</i> </button>
+                </div>
+            </div>
+        </main>
+        <!--Modal referente ao botão Sair da sidebar-->
+        <dialog class="mdl-dialog">
+            <h4 class="mdl-dialog__title">Sair</h4>
+            <div class="mdl-dialog__content">
+                <p>Você deseja se desconectar do Luvi?</p>
+            </div>
+            <!--Botões do modal-->
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">SIM</button>
+                <button type="button" class="mdl-button cancel">NÃO</button>
+            </div>
+        </dialog>
+        <!--Script referente ao modal de saida do app-->
+        <script>
+            var dialog = document.querySelector('dialog');
+            var showDialogButton = document.querySelector('.show-close');
+            if (!dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            showDialogButton.addEventListener('click', function () {
+                dialog.showModal();
+            });
+            dialog.querySelector('.close').addEventListener('click', function () {
+                localStorage.clear();
+                window.location = 'index.html';
+                dialog.close();
+            });
+            dialog.querySelector('.cancel').addEventListener('click', function () {
+                dialog.close();
+            });
+        </script>
+    </div>
+</body>
+<!-- Script referente a mensagem das partes em construção -->
+<script>
+    var obj = localStorage.getItem('usuario');
+    var user = jQuery.parseJSON(obj);
+    if (obj != null) {
+        var data = user.DataDeNascimento;
+        var sexo = user.Sexo;
+        if (sexo == 'M' || sexo == 'm') {
+            sexo = 'Masculino';
+        }
+        else {
+            sexo = 'Feminino';
+        }
+        $("#nomePerfil").append(user.Nome);
+        $("#dadosPerfil").append('<p> RG: ' + user.RG + ' </p><p>CPF: ' + user.CPF + ' </p><p>Sexo: ' + sexo + ' </p><p>Data de Nascimento: ' + data + ' </p>');
+    }
+    else {
+        alert("Efetue o login para continuar");
+        localStorage.clear();
+        window.location = 'index.html';
+    }
+
+    function construcao() {
+        navigator.notification.alert("Ops... Ainda não, estamos trabalhando na construção.", "", "Alerta");
+    }
+</script>
+
+</html>

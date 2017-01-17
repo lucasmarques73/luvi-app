@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Social</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <!-- Link referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css">
+    <!-- Link referente aos botões das redes sociais em bootstrap -->
+    <link rel="stylesheet" href="bootstrap-social/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="bootstrap-social/assets/css/font-awesome.css"> </head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <button onclick="window.history.back()" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon"> <i class="material-icons">arrow_back</i> </button>
+            <div class="mdl-layout__header-row"> <span class="mdl-layout-title">Social</span> </div>
+        </header>
+        <main class="mdl-layout__content">
+            <br/>
+            <!-- CSS referente ao padding da tag <main> -->
+            <style rel="stylesheet">
+                main {
+                    padding-left: 3%;
+                    padding-right: 3%;
+                    padding-bottom: 2%;
+                }
+            </style>
+            <!-- tags referentes aos botões "usando bootstrap" -->
+            <a href="https://www.instagram.com/" class="btn btn-block btn-social btn-instagram btn-lg"> <span class="fa fa-instagram"></span>Instagram </a>
+            <a href="https://www.facebook.com/" class="btn btn-block btn-social btn-facebook btn-lg"> <span class="fa fa-facebook"></span>Facebook </a>
+            <a href="https://twitter.com/" class="btn btn-block btn-social btn-twitter btn-lg"> <span class="fa fa-twitter"></span>Twitter </a>
+            <a href="mailto:luvi@teste.com" class="btn btn-block btn-social btn-vimeo btn-lg">
+                <!-- essa tag usa o material design lite --><span class="mdl-layout-icon material-icons">email</span>E-mail </a>
+            <a href="http://luvi.esy.es/" class="btn btn-block btn-social btn-microsoft btn-lg">
+                <!-- essa tag usa o material design lite --><span class="mdl-layout-icon material-icons">public</span>Site </a>
+            <a href="falecon.html" class="btn btn-block btn-social btn-yahoo btn-lg">
+                <!-- essa tag usa o material design lite --><span class="mdl-layout-icon material-icons">message</span>Contato </a>
+        </main>
+    </div>
+</body>
+
+</html>

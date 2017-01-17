@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Luvi</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <!-- Link referente ao css da sidebar op, hsuahsuah em MDL -->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.js"></script>
+    <!-- Link online referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css">
+    <!--<style type="text/css">
+        .demo-drawer, .mdl-layout__content {
+            overflow: hidden;
+        }
+    </style>-->
+    <!-- CSS reeferente as tags de linha(hr) -->
+    <style>
+        hr {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            width: 80%;
+            margin-left: 15%;
+            margin-right: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Base do layout do programa -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Titulo --><span class="mdl-layout-title">Luvi</span>
+                <!-- Div de espaco entre titulo e o botão a direita -->
+                <div class="mdl-layout-spacer"></div>
+
+                <!--Botão para pequisar que está no header da pagina inicial-->
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                    </div>
+                </div>
+
+                <!-- Botao menu com alinhameto a direita -->
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon"> <i class="material-icons">more_vert</i> </button>
+                <!-- Conteúdo do botão -->
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <a href="termos.html" class="mdl-menu__item">Termos de uso</a>
+                    <a href="politica.html" class="mdl-menu__item">Política de privacidade</a>
+                    <a href="qsomos.html" class="mdl-menu__item">Quem somos</a>
+                    <a href="social.html" class="mdl-menu__item">Social</a>
+                </ul>
+            </div>
+
+            <!-- Controle de Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#fixed-tab-1" class="mdl-layout__tab">Serviços</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab is-active">Início</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab">Empresas</a>
+            </div>
+
+        </header>
+        <!-- Sidebar -->
+        <!-- Conteudo da sidebar -->
+        <div class="demo-drawer mdl-layout__drawer mdl-color--deep-orange-900 mdl-color-text--deep-orange-50">
+            <!-- header da sidebar -->
+            <header class="demo-drawer-header"> <img src="PropagandaIMG/IMGperfil.png" class="demo-avatar">
+                <!-- dropdown da sidebar -->
+                <div class="demo-avatar-dropdown"> <span id="nomePerfil"></span> </div>
+            </header>
+            <!-- navegação da sidebar -->
+            <nav class="demo-navigation mdl-navigation mdl-color--deep-orange-800">
+                <a class="mdl-navigation__link mdl-color-text--deep-orange-200" href="perfil.html">
+                    <i class="mdl-color-text--deep-orange-400 material-icons" role="presentation">person</i>Meu Perfil</a>
+                <a class="mdl-navigation__link mdl-color-text--deep-orange-200" href="servicos.html">
+                    <i class="mdl-color-text--deep-orange-400 material-icons" role="presentation">build</i>Meus Serviços</a>
+                <a class="mdl-navigation__link mdl-color-text--deep-orange-200" href="favoritos.html">
+                    <i class="mdl-color-text--deep-orange-400 material-icons" role="presentation">favorite</i>Meus Favoritos</a>
+                <a class="mdl-navigation__link mdl-color-text--deep-orange-200"  href="avaliacao.html">
+                    <i class="mdl-color-text--deep-orange-400 material-icons" role="presentation">star</i>Minhas Avaliações</a>
+                <a class="mdl-navigation__link mdl-color-text--deep-orange-200" href="social.html">
+                    <i class="mdl-color-text--deep-orange-400 material-icons" role="presentation">people</i>Luvi Social</a>
+
+                <!-- Div de espaçamento -->
+                <div class="mdl-layout-spacer"></div>
+
+                <a onclick="" class="show-close mdl-navigation__link mdl-color-text--deep-orange-200" href="#">
+                    <i class="mdl-color-text--deep-orange-400 material-icons" role="presentation">exit_to_app</i>Sair
+                    <span class="visuallyhidden">Sair</span></a>
+            </nav>
+        </div>
+        <!-- Conteúdo das Tabs -->
+        <main class="mdl-layout__content">
+            <section class="mdl-layout__tab-panel" id="fixed-tab-1">
+                <div class="page-content">
+                    <style>
+                        #loading {
+                            display: block;
+                            width: 100px;
+                            margin: 0 auto;
+                            margin-top: 30px;
+                        }
+                    </style>
+                    <!--GIF de loading--><img src="PropagandaIMG/gears.svg" id="loading" />
+                    <!-- Conteúdo da Tab 1 -->
+                    <div class="demo-list-action mdl-list" id="lista"> </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
+                <div class="page-content">
+                    <!-- Conteúdo da Tab 2 -->
+                    <!-- CSS referente as imagens -->
+                    <style>
+                        img {
+                            max-width: 100%;
+                        }
+                    </style>
+                    <!-- Div com as imagens de publicidade -->
+                    <div> <img src="PropagandaIMG/anuncio.jpg" title="Publicidade e propaganda" onclick="" class="show-anuncio" /> </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                <div class="page-content">
+                    <!-- Conteúdo 3 -->
+                    <p>
+                      Em desenvolvimento.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <!--Modal de anúncio da home-->
+        <dialog id="dialoganuncio" class="mdl-dialog">
+            <h4 class="mdl-dialog__title">Anúncio</h4>
+            <div class="mdl-dialog__content">
+                <p>Para ter seu perfil exibido aqui, não perca tempo, entre em contato com a gente, vá ao menu social, lá você saberá o que fazer.</p>
+            </div>
+            <!--Botões do modal-->
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button social">MENU SOCIAL</button>
+                <button type="button" class="mdl-button cancel">CANCELAR</button>
+            </div>
+        </dialog>
+        <!--Script referente ao modal de anúncio da home-->
+        <script>
+            var dialog1 = document.querySelector('#dialoganuncio');
+            var showDialogButton1 = document.querySelector('.show-anuncio');
+            if (!dialog1.showModal) {
+                dialogPolyfill.registerDialog(dialog1);
+            }
+            showDialogButton1.addEventListener('click', function () {
+                dialog1.showModal();
+            });
+            dialog1.querySelector('.social').addEventListener('click', function () {
+                dialog1.close();
+                window.location = "social.html";
+            });
+            dialog1.querySelector('.cancel').addEventListener('click', function () {
+                dialog1.close();
+            });
+        </script>
+        <!--Modal de saida do app referente ao botão Sair da sidebar-->
+        <dialog id="dialogsair" class="mdl-dialog">
+            <h4 class="mdl-dialog__title">Sair</h4>
+            <div class="mdl-dialog__content">
+                <p>Você deseja se desconectar do Luvi?</p>
+            </div>
+            <!--Botões do modal-->
+            <div class="mdl-dialog__actions">
+                <button type="button" class="mdl-button close">SIM</button>
+                <button type="button" class="mdl-button cancel">NÃO</button>
+            </div>
+        </dialog>
+        <!--Script referente ao modal de saida do app-->
+        <script>
+            var dialog = document.querySelector('#dialogsair');
+            var showDialogButton = document.querySelector('.show-close');
+            if (!dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            showDialogButton.addEventListener('click', function () {
+                dialog.showModal();
+            });
+            dialog.querySelector('.close').addEventListener('click', function () {
+                localStorage.clear();
+                window.location = 'index.html';
+                dialog.close();
+            });
+            dialog.querySelector('.cancel').addEventListener('click', function () {
+                dialog.close();
+            });
+        </script>
+    </div>
+</body>
+<!-- Script referente a mensagem de confirmação de saida do app -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var obj = localStorage.getItem('usuario');
+        var user = jQuery.parseJSON(obj);
+        if (obj != null) {
+            $("#nomePerfil").append(user.Nome);
+        }
+        else {
+            alert("Efetue o login pra continuar");
+            localStorage.clear();
+            window.location = 'index.html';
+        }
+    });
+    var urlSite = "http://luvi.esy.es/api/apiListaCatProf.php";
+    var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+    $.ajax({
+        method: "POST"
+        , url: urlSite
+        , data: 'token=' + token + '&acao=1'
+    }).done(function (result) {
+        var obj = JSON.parse(result);
+        for (var i = 0; i < obj.length; i++) {
+            $('#lista').append('<div onclick="goAutonomos(' + obj[i].idtblCatProfissao + ')" class="mdl-list__item"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">' + obj[i].icone + '</i><span>' + obj[i].CatProfissao + '</span></span><button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">arrow_forward</i></button></div><hr />');
+        }
+        /*Remove o GIF de loading dps que os elementos carregaram*/
+        $("#loading").remove();
+    }).fail(function (erro) {
+        alert("Ops, houve um probleminha inesperado!");
+    });
+
+    function goAutonomos(idCatProfissao) {
+        //Recebe o id da categoria via parametro para a nova pagina. Armazenando na sessão;
+        var idCatProfissao = JSON.stringify(idCatProfissao);
+        sessionStorage.setItem('idCatProfissao', idCatProfissao);
+        //comando que chama a page autonomos
+        window.location = "autonomos.html";
+    }
+
+    function construcao() {
+        navigator.notification.alert("Ops... Ainda não, estamos trabalhando na construção.", "", "Alerta");
+    }
+</script>
+
+</html>

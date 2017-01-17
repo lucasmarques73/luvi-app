@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Serviços</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <!-- Link online referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css">
+    <!--CSS referente ao dropdown-->
+    <link rel="stylesheet" href="css/dropdown.css">
+    <!--Script referente ao dropdown-->
+    <script src="js/dropdown.js"></script>
+
+</head>
+
+<body style="overflow: hidden;">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <button onclick="window.history.back()" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon"> <i class="material-icons">arrow_back</i> </button>
+            <div class="mdl-layout__header-row"> <span class="mdl-layout-title">Meus Serviços</span> </div>
+        </header>
+        <!--CSS referente a imagem de loading-->
+        <style>
+            #loading {
+                display: block;
+                width: 100px;
+                margin: 0 auto;
+                margin-top: 30px;
+            }
+        </style>
+        <!--GIF de loading--><img src="PropagandaIMG/gears.svg" id="loading" />
+        <main class="mdl-layout__content">
+            <!-- CSS reeferente as tags de linha(hr) -->
+            <style>
+                hr {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    width: 80%;
+                    margin-left: 15%;
+                    margin-right: 5%;
+                }
+                ul {
+                    margin: 0px;
+                }
+            </style>
+            <ul class="demo-list-three mdl-list" id="listaServicos">
+                <!-- Inicio da lista de Serviços -->
+            </ul>
+            <!--CSS referente ao botao adicionar serviço-->
+            <style>
+                /*CSS que faz com que o botão fique sempre no fim da tela no canto direito*/
+                #btnAddServicos {
+                    position: fixed;
+                    display: block;
+                    right: 0;
+                    bottom: 0;
+                    margin-right: 30px;
+                    margin-bottom: 30px;
+                    z-index: 900;
+                }
+            </style>
+
+            <!--Botão adicionar serviços, chama o modal de adição-->
+            <button id="btnAddServicos" class="btnadicionar show-modal mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style=""> <i class="material-icons">add</i> </button>
+
+            <!--Modal para inserir novo serviço-->
+            <dialog class="mdl-dialog">
+                <div class="mdl-dialog__content">
+                    <!--Dropdown contendo os tipos de serviços-->
+                    <form action="#">
+                        <div class="mdl-select mdl-js-select mdl-select--floating-label">
+                            <select class="mdl-select__input" id="tiposervico" name="tiposervico"> </select>
+                            <label class="mdl-select__label" for="tiposervico">Serviço</label>
+                        </div>
+                    </form>
+                    <!-- campo para digitar Descrição do novo serviço -->
+                    <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" type="text" id="descProfissao">
+                            <label class="mdl-textfield__label" for="descProfissao">Descrição</label>
+                        </div>
+                    </form>
+                </div>
+                <!--botoes de opção dentro do modal de inserção de contato-->
+                <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+                    <button type="button" class="mdl-button cadastrar">Cadastrar</button>
+                    <button type="button" class="mdl-button cancelar">Cancelar</button>
+                </div>
+            </dialog>
+            <!--Script referente as ações do modal-->
+            <script>
+                var dialog = document.querySelector('dialog');
+                var showModalButton = document.querySelector('.show-modal');
+                if (!dialog.showModal) {
+                    dialogPolyfill.registerDialog(dialog);
+                }
+                /*Função para chamar o modal*/
+                showModalButton.addEventListener('click', function () {
+                    dialog.showModal();
+                });
+                /*Função referente ao click do botão cadastrar*/
+                dialog.querySelector('.cadastrar').addEventListener('click', function () {
+                    var urlMeusServicos = "http://luvi.esy.es/api/apiMeusServicos.php";
+                    var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+                    var id = user.ID;
+                    var descProfissao = $("#descProfissao").val();
+                    var idTipoServico = $('#tiposervico').find('option:selected').val();
+                    $.ajax({
+                        method: "POST"
+                        , url: urlMeusServicos
+                        , data: 'token=' + token + '&id=' + id + '&descProfissao=' + descProfissao + '&idTipoServico=' + idTipoServico + '&acao=2'
+                    }).done(function (result) {
+                        //alert exibindo a mensagem que vem do banco. CADASTRADO COM SUCESSO!
+                        alert(result);
+                        window.location.reload(true);
+                    }).fail(function (erro) {
+                        alert("Ops, houve um probleminha inesperado!");
+                    });
+                });
+                /*Função referente ao click do botão cancelar*/
+                dialog.querySelector('.cancelar').addEventListener('click', function () {
+                    dialog.close();
+                });
+            </script>
+        </main>
+    </div>
+</body>
+<script>
+    var obj = localStorage.getItem('usuario');
+    var user = jQuery.parseJSON(obj);
+    //Ajax para preencher os serviços cadastrados
+    var urlSite = "http://luvi.esy.es/api/apiListaCatProf.php";
+    var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+    $.ajax({
+        method: "POST"
+        , url: urlSite
+        , data: 'token=' + token + '&acao=1'
+    }).done(function (result) {
+        var obj = JSON.parse(result);
+        for (var i = 0; i < obj.length; i++) {
+            $('#tiposervico').append('<option value="' + obj[i].idtblCatProfissao + '">' + obj[i].CatProfissao + '</option>');
+        }
+    }).fail(function (erro) {
+        alert("Ops, houve um probleminha inesperado!");
+    });
+    //Ajax para preencher a lista de Profissões cadastradas
+    var urlMeusServicos = "http://luvi.esy.es/api/apiMeusServicos.php";
+    var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+    $.ajax({
+        method: "POST"
+        , url: urlMeusServicos
+        , data: 'token=' + token + '&id=' + user.ID + '&acao=1'
+    }).done(function (result) {
+        var obj = JSON.parse(result);
+        if (result == 'null') {
+            $('#listaServicos').append('<li class="mdl-list__item mdl-list__item--three-line">Você ainda não cadastrou nenhum Serviço</li>');
+        }
+        else {
+            for (var i = 0; i < obj.length; i++) {
+                $('#listaServicos').append('<li onclick="perfilProfissional(' + user.ID + ',' + obj[i].IdCatProfissao + ')" class="mdl-list__item mdl-list__item--three-line"><span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-avatar">' + obj[i].icone + '</i><span>' + obj[i].CatProfissao + '</span><span class="mdl-list__item-text-body">' + obj[i].descProfissao + '</span></span><button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">arrow_forward</i></button></li><hr />');
+            }
+        }
+        /*Remove o GIF de loading dps que os elementos carregaram*/
+        $("#loading").remove();
+    }).fail(function (erro) {
+        alert("Ops, houve um probleminha inesperado!");
+    });
+
+    function perfilProfissional(IdProfissional, idCatProfissao) {
+        //Recebe o id do usuario via parametro para a nova pagina. Armazenando na sessão;
+        var IdProfissional = JSON.stringify(IdProfissional);
+        var idCatProfissao = JSON.stringify(idCatProfissao);
+        sessionStorage.setItem('IdProfissional', IdProfissional);
+        sessionStorage.setItem('idCatProfissao', idCatProfissao);
+        //comando que chama a page perfilProfissional
+        window.location = "perfilProfissional.html";
+    }
+</script>
+
+</html>

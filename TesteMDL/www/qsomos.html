@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quem somos</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <!-- Link online referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css"> </head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+        <header class="mdl-layout__header">
+            <button onclick="window.history.back()" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon"> <i class="material-icons">arrow_back</i> </button>
+            <div class="mdl-layout__header-row"> <span class="mdl-layout-title">Quem somos</span> </div>
+        </header>
+        <main class="mdl-layout__content">
+            <br/>
+            <!-- CSS referente ao padding da tag <p> -->
+            <style rel="stylesheet">
+                /* formatação do bg da tag body */
+
+                body {
+                    background-image: url(PropagandaIMG/iconcinza.png);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 50%;
+                }
+
+                html,
+                body {
+                    height: 100%;
+                    min-height: 100%;
+                }
+
+                p {
+                    padding-left: 3%;
+                    padding-right: 3%;
+                }
+            </style>
+            <p>Em desenvolvimento.</p>
+        </main>
+    </div>
+</body>
+
+</html>

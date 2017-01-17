@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Luvi</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+    <!--Scprit JQUERY -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- Link referente ao css do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.deep_orange-blue.min.css">
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+    <!-- Script referente ao js do material design -->
+    <script src="bower_components/material-design-lite/material.min.js"></script>
+    <!-- Link online referente aos icones do material design -->
+    <link rel="stylesheet" href="bower_components/material-design-icons-font/iconfont/material-icons.css">
+    
+    <!--Script referente ao alert-->
+    <script src="js/sweetalert.min.js"></script>
+    <!--Link de css referente ao alert-->
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    
+    <style>
+        /* cor do bg da tag body */
+
+        body {
+            background-color: aliceblue;
+            background-image: url(PropagandaIMG/iconretangular.png);
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: 50%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+        }
+        /* CSS referente a classe que centraliza o elemento */
+
+        .wrapper {
+            height: 100%;
+            min-height: 100%;
+            /* habilita o flex nos filhos diretos*/
+            display: flex;
+            /* centraliza na vertical*/
+            align-items: center;
+            /* centraliza na horizontal*/
+            justify-content: center;
+        }
+        /* CSS referente ao alinhamento do botão a direira */
+
+        #btnEntrar {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Div com elementos centralizados -->
+    <div class="wrapper">
+        <!-- Grid centralizado -->
+        <div class="mdl-grid">
+            <!-- célula que ocupa o tamanho maximo dentro do MDL -->
+            <div class="mdl-cell mdl-cell--12-col">
+                <!-- Campo texto de E-mail -->
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email">
+                        <label class="mdl-textfield__label" for="email">Email</label>
+                        <span class="mdl-textfield__error">E-mail inválido</span>
+                    </div>
+                </form>
+                <!-- Campo texto de Senha -->
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="senha">
+                        <label class="mdl-textfield__label" for="email">Senha</label>
+                    </div>
+                </form>
+                <!-- Botão cadastrar --><a onclick="goCadastro()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnCadastrar" href="#">Cadastrar</a>
+                <!-- Botão Entrar --><a id="btnEntrar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnEntrar" href="#">Entrar</a> </div>
+        </div>
+    </div>
+</body>
+<!-- Script referente a mensagem das partes em construção -->
+<script type="text/javascript">
+
+      var obj = localStorage.getItem('usuario');
+      var user = jQuery.parseJSON(obj);
+      if (obj != null) {
+            window.location = 'home.html';
+      }
+      else {
+      }
+    //Função que chama e home sem opção pra retorno
+   /* $("#btnEntrar").click(function () {
+        //Váriaveis
+        var urlSite = "http://luvi.esy.es/api/apiLogin.php";
+        var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+        var email = $("#email").val();
+        var senha = $("#senha").val();
+        if (email == "") {
+            navigator.notification.alert("Preencha o campo E-mail.", "", "Alerta");
+        }
+        else if (senha == "") {
+            navigator.notification.alert("Preencha o campo Senha.", "", "Alerta");
+        }
+        else {
+            $.ajax({
+                method: "POST"
+                , url: urlSite
+                , data: 'token=' + token + '&email=' + email + '&senha=' + senha
+                , assync: "false"
+            }).done(function (result) {
+                if (result == 'null' || result == 'Erro ao conectar com o banco!') {
+                    navigator.notification.alert("E-mail ou Senha invalidos.", "", "Alerta");
+                }
+                else {
+                    alert("Login efetuado com sucesso!");
+                    var resultado = result.replace("[", "");
+                    var resultado = resultado.replace("]", "");
+                    localStorage.setItem("usuario", resultado);
+                    window.location = 'home.html';
+                }
+            }).fail(function (erro) {
+                alert("Ops, houve um probleminha inesperado!");
+            });
+        }
+    });*/
+    
+     //Função que chama e home sem opção pra retorno
+    $("#btnEntrar").click(function () {
+        //Váriaveis
+        var urlSite = "http://luvi.esy.es/api/apiLogin.php";
+        var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
+        var email = $("#email").val();
+        var senha = $("#senha").val();
+        if (email == "") {
+            sweetAlert("Oops...", "Preencha o campo E-mail!", "error");
+        }
+        else if (senha == "") {
+            sweetAlert("Oops...", "Preencha o campo Senha!", "error");
+        }
+        else {
+            $.ajax({
+                method: "POST"
+                , url: urlSite
+                , data: 'token=' + token + '&email=' + email + '&senha=' + senha
+                , assync: "false"
+            }).done(function (result) {
+                if (result == 'null' || result == 'Erro ao conectar com o banco!') {
+                    sweetAlert("Oops...", "E-mail ou Senha invalidos!", "error");
+                }
+                else {
+                    /*Alert que espera a confirmação para poder ir a home depois de efetuado o login*/
+                    swal({
+                        title: "Bem vindo!",
+                        text: "Login efetuado com sucesso!",
+                        type: "success",
+                    },
+                         /*Função executada após a confirmação do login*/
+                         function(){
+                        var resultado = result.replace("[", "");
+                        var resultado = resultado.replace("]", "");
+                        localStorage.setItem("usuario", resultado);
+                        window.location = 'home.html';
+                    });
+                }
+            }).fail(function (erro) {
+                alert("Ops, houve um probleminha inesperado!");
+            });
+        }
+    });
+    //Função que chama e home sem opção pra retorno
+    function goCadastro() {
+        window.location = "cadastro.html";
+    }
+</script>
+
+</html>
