@@ -5,7 +5,7 @@
 
 	$msg = "Agora são:  $date";
 
-	$usuarios = array("1614b02c-ffe3-4ade-b2ac-c0a8b556b64d","fc2b4c37-df0c-439d-8717-101d68fe6c4e","12205dcf-5abd-463f-a182-f37ff7be36ed");
+	$usuarios = array("1614b02c-ffe3-4ade-b2ac-c0a8b556b64d","fc2b4c37-df0c-439d-8717-101d68fe6c4e","12205dcf-5abd-463f-a182-f37ff7be36ed","fa2ebdef-330d-4aca-8f2b-17e24f49755b");
 
 
 	function sendMessage($mensagem,$users){
