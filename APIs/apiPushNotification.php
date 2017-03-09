@@ -3,7 +3,8 @@
 	date_default_timezone_set('America/Sao_Paulo');
 	$date = date('Y-m-d H:i');
 
-	$msg = "Agora são:  $date";
+	//$msg = "Agora são:  $date";
+	$msg = 'Nunca esqueça que eu TE AMO';
 
 	$usuarios = array("1614b02c-ffe3-4ade-b2ac-c0a8b556b64d","fc2b4c37-df0c-439d-8717-101d68fe6c4e","12205dcf-5abd-463f-a182-f37ff7be36ed","fa2ebdef-330d-4aca-8f2b-17e24f49755b");
 
@@ -11,11 +12,11 @@
 	function sendMessage($mensagem,$users){
 
 	$headings = array(
-      	'en' => 'English Title',
-      	'pt' => 'Título'
+      	'en' => 'Nunca esqueça que eu TE AMO',
+      	'pt' => 'Nunca esqueça que eu TE AMO'
     );
 	$content = array(
-		'en' => 'Text',
+		'en' => 'Nunca esqueça que eu TE AMO',
       	'pt' => $mensagem
     );
 
@@ -24,9 +25,10 @@
       'include_player_ids' => $users,
       'data' => array("foo" => "bar"),
       'headings' => $headings,
-      'chrome_web_icon' => 'http://luvi.esy.es/imgRanor/96_96.fw.png',
-      'small_icon' => 'http://luvi.esy.es/imgRanor/96_96.fw.png',
-      'large_icon' => 'http://luvi.esy.es/imgRanor/96_96.fw.png',
+      'chrome_web_icon' => 'http://luvi.esy.es/love/love.jpg',
+      'small_icon' => 'http://luvi.esy.es/love/love.jpg',
+      'large_icon' => 'http://luvi.esy.es/love/love.jpg',
+			'url' => 'http://luvi.esy.es/love/love.jpg',
 			'contents' => $content
 		);
 
