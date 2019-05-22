@@ -6,8 +6,7 @@
       $token = $_POST['token'];
       $id = $_POST['id'];
       $acao = $_POST['acao'];
-      $descProfissao = $_POST['descProfissao'];
-      $idTipoServico = $_POST['idTipoServico'];
+     
 
 
       if ($acao == '1') {
@@ -32,6 +31,9 @@
         }else if ($acao = '2')
         {
           if ($token === "1f3d2gs3f2fg3as2fdg3re2t1we46er45") {
+
+            $descProfissao = $_POST['descProfissao'];
+            $idTipoServico = $_POST['idTipoServico'];
 
                       $sql = "INSERT INTO tblprofissao (descProfissao, notaProfissao, tblpessoa_idPessoa, tblcatprofissao_idtblCatProfissao) VALUES ( :descProfissao, 0, :id , :idTipoServico)";
                       $exec = $con->prepare($sql);

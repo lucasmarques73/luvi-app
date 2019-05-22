@@ -25,10 +25,10 @@
       'include_player_ids' => $users,
       'data' => array("foo" => "bar"),
       'headings' => $headings,
-      'chrome_web_icon' => 'http://luvi.esy.es/love/love.jpg',
-      'small_icon' => 'http://luvi.esy.es/love/love.jpg',
-      'large_icon' => 'http://luvi.esy.es/love/love.jpg',
-			'url' => 'http://luvi.esy.es/love/love.jpg',
+      'chrome_web_icon' => 'https://philological-servan.000webhostapp.com/love/love.jpg',
+      'small_icon' => 'https://philological-servan.000webhostapp.com/love/love.jpg',
+      'large_icon' => 'https://philological-servan.000webhostapp.com/love/love.jpg',
+			'url' => 'https://philological-servan.000webhostapp.com/love/love.jpg',
 			'contents' => $content
 		);
 

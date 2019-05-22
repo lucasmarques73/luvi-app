@@ -6,8 +6,7 @@
       $token = $_POST['token'];
       $id = $_POST['id'];
       $acao = $_POST['acao'];
-      $tipoContato = $_POST['tipocontato'];
-      $contato = $_POST['contato'];
+    
 
       //$token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
       //$email = "lucasmarques73@hotmail.com";
@@ -32,6 +31,9 @@
         }
     }else if ($acao == "2") {
           if ($token === "1f3d2gs3f2fg3as2fdg3re2t1we46er45") {
+
+                $tipoContato = $_POST['tipocontato'];
+                $contato = $_POST['contato'];
 
                   $sql = "INSERT INTO tblcontato (Contato, tbltipocontato_idTipoContato,tblpessoa_idPessoa) VALUES(:contato, :tipocontato, :id)";
                   $exec = $con->prepare($sql);

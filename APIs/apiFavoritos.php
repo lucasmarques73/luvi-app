@@ -6,7 +6,7 @@
       $token = $_POST['token'];
       $id = $_POST['id'];
       $idUser = $_POST['idUser'];
-      $idProfissao = $_POST['idProfissao'];
+      
       $acao = $_POST['acao'];
 
       if ($acao == '1') {
@@ -30,6 +30,8 @@
 
       }else if ($acao = '2'){
         if ($token === "1f3d2gs3f2fg3as2fdg3re2t1we46er45") {
+
+          $idProfissao = $_POST['idProfissao'];
 
           $sql = "INSERT INTO tblfavoritos (descFavoritos, tblpessoa_idPessoa, tblprofissao_idProfissao) VALUES ('Formatou meu Computador',:idUser,:idProfissao);";
           $exec = $con->prepare($sql);

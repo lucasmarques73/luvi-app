@@ -9,10 +9,9 @@
       $id = $_POST['id'];
       $acao = $_POST['acao'];
       //Parametros para a segunda ação
-      $notaAvaliacao = $_POST['notaAvaliacao'];
-      $descAvaliacao = $_POST['descAvaliacao'];
-      $idPessoa = $_POST['idPessoa'];
+
       $idProfissao = $_POST['idProfissao'];
+      
 
       if ($acao == "1") {
           if ($token === "1f3d2gs3f2fg3as2fdg3re2t1we46er45") {
@@ -36,6 +35,11 @@
    }
      else if($acao == "2"){
        if ($token === "1f3d2gs3f2fg3as2fdg3re2t1we46er45") {
+
+        $notaAvaliacao = $_POST['notaAvaliacao'];
+        $descAvaliacao = $_POST['descAvaliacao'];
+        $idPessoa = $_POST['idPessoa'];
+        
 
                $sql = "call insereAval(:notaAvaliacao,:descAvaliacao,CURRENT_DATE(),:idPessoa,:idProfissao);";
                $exec = $con->prepare($sql);

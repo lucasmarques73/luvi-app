@@ -7,13 +7,7 @@
       $id = $_POST['id'];
       $acao = $_POST['acao'];
       //Parametros para INSERT
-      $rua = $_POST['rua'];
-      $numero = $_POST['numero'];
-      $complemento = $_POST['complemento'];
-      $bairro = $_POST['bairro'];
-      $cidade = $_POST['cidade'];
-      $estado = $_POST['estado'];
-      $cep = $_POST['cep'];
+     
 
 
       // echo $id;
@@ -46,6 +40,14 @@
           }
         }else if ($acao == "2") {
               if ($token === "1f3d2gs3f2fg3as2fdg3re2t1we46er45") {
+
+                $rua = $_POST['rua'];
+                $numero = $_POST['numero'];
+                $complemento = $_POST['complemento'];
+                $bairro = $_POST['bairro'];
+                $cidade = $_POST['cidade'];
+                $estado = $_POST['estado'];
+                $cep = $_POST['cep'];
 
                       $sql = "INSERT INTO tblendereco (ruaEnd, numEnd, complementoEnd, bairroEnd, cidadeEnd, estadoEnd, tblpessoa_idPessoa, cepEnd) VALUES (:rua, :numero, :complemento, :bairro, :cidade, :estado, :id, :cep )";
                       $exec = $con->prepare($sql);

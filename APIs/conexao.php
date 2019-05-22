@@ -3,12 +3,13 @@
         header("Access-Control-Allow-Origin: *");
         header('Content-Type: text/html; charset=utf-8');
 
-        $dns = "mysql:host=mysql.hostinger.com.br;dbname=u945421984_luvi";
-        $user = 'u945421984_luvi';
-        $pass = '123456';
+        $dns = "mysql:host=localhost;dbname=id9684218_luvi";
+        $user = 'id9684218_admin';
+        $pass = '!@#123';
 
         try {
                 $con = new PDO($dns, $user, $pass);
+                $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
                 if(!$con){
                           echo "Não foi possivel conectar com Banco de Dados!";

@@ -197,8 +197,8 @@
 </body>
 <!-- Script referente a mensagem das partes em construção -->
 <script>
-    var urlSite = "http://luvi.esy.es/api/apiPerfilProfissional.php";
-    var urlAval = "http://luvi.esy.es/api/apiAvaliacao.php";
+    var urlSite = "https://philological-servan.000webhostapp.com/api/apiPerfilProfissional.php";
+    var urlAval = "https://philological-servan.000webhostapp.com/api/apiAvaliacao.php";
     var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
     var id = JSON.parse(sessionStorage.getItem('IdProfissional'));
     var idCatProfissao = JSON.parse(sessionStorage.getItem('idCatProfissao'));
@@ -237,7 +237,7 @@
         alert("Ops, houve um probleminha inesperado!");
     });
     //Ajax para preencher os Contatos do Profissional
-    var urlContatos = "http://luvi.esy.es/api/apiContatos.php";
+    var urlContatos = "https://philological-servan.000webhostapp.com/api/apiContatos.php";
     var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
     $.ajax({
         method: "POST"

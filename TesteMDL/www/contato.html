@@ -135,7 +135,7 @@
                 });
                 /*Função referente ao click do botão cadastrar*/
                 dialog.querySelector('.cadastrar').addEventListener('click', function () {
-                    var urlSite = "http://luvi.esy.es/api/apiContatos.php";
+                    var urlSite = "https://philological-servan.000webhostapp.com/api/apiContatos.php";
                     var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
                     var id = user.ID;
                     var contato = $("#contato").val();
@@ -175,7 +175,7 @@
     <script>
         var obj = localStorage.getItem('usuario');
         var user = jQuery.parseJSON(obj);
-        var urlSite = "http://luvi.esy.es/api/apiContatos.php";
+        var urlSite = "https://philological-servan.000webhostapp.com/api/apiContatos.php";
         var token = "1f3d2gs3f2fg3as2fdg3re2t1we46er45";
         var id = user.ID;
         $.ajax({
