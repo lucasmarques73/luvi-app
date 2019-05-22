@@ -28,6 +28,7 @@
                   $exec->bindParam(':id', $id);
                   $exec->execute();
 
+                  $vetor = [];
                   while($row=$exec->fetch(PDO::FETCH_ASSOC)){
                           $vetor[] = $row ;
 

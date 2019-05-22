@@ -56,6 +56,7 @@
               $exec->bindParam(':senha', $senha);//Parametros
               $exec->execute();
 
+              $vetor = [];
               while($row=$exec->fetch(PDO::FETCH_ASSOC)){
                       $vetor[] = $row ;
               }
