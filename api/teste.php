@@ -35,7 +35,13 @@
                       $vetor[] = $row ;
               }
 
-              echo json_encode($vetor,JSON_UNESCAPED_UNICODE);
+              if ($vetor) {
+                echo json_encode($vetor,JSON_UNESCAPED_UNICODE);
+            }
+
+             else { 
+ echo "null";
+}
             } catch ( Exception $e){
               echo $e->getMessage();
             }

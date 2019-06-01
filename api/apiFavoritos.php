@@ -23,7 +23,13 @@
                   while($row=$exec->fetch(PDO::FETCH_ASSOC)){
                           $vetor[] = $row ;
                   }
-                  echo json_encode($vetor,JSON_UNESCAPED_UNICODE);
+                  if ($vetor) {
+                echo json_encode($vetor,JSON_UNESCAPED_UNICODE);
+            }
+
+             else { 
+ echo "null";
+}
                   }
                   else{
                     echo "Erro ao conectar com o banco!";

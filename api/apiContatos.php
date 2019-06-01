@@ -25,7 +25,13 @@
 
                 }
 
+                if ($vetor) {
                 echo json_encode($vetor,JSON_UNESCAPED_UNICODE);
+            }
+
+             else { 
+ echo "null";
+}
         }
         else{
           echo "Erro ao conectar com o banco!";
